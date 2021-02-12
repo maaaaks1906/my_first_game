@@ -46,10 +46,7 @@ public class InputManagerTest extends GameCore {
     }
 
     public void update(long elapsedTime) {
-        float ground = 0;
-        ground = player.getY() - player.getHeight();
         checkSystemInput();
-        System.out.println(ground + " player Y");
         if (!isPaused()) {
             checkGameInput();
             player.update(elapsedTime);

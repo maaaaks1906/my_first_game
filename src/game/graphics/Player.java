@@ -37,8 +37,6 @@ public class Player extends Sprite {
     public void update(long elapsedTime) {
         if (getState() == STATE_JUMPING) {
             setVelocityY(getVelocityY() + GRAVITY*elapsedTime);
-            System.out.println(getVelocityY()+"vrelocity");
-            System.out.println(elapsedTime + "elapsedtime");
         }
 
         super.update(elapsedTime);
@@ -48,6 +46,5 @@ public class Player extends Sprite {
             setY(floorY);
             setState(STATE_NORMAL);
         }
-        System.out.println(floorY + "FLOORY");
     }
 }
