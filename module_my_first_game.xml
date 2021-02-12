@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_my_first_game" default="compile.module.my_first_game">
+  <dirname property="module.my_first_game.basedir" file="${ant.file.module_my_first_game}"/>
+  
+  <property name="module.jdk.home.my_first_game" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.my_first_game" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.my_first_game" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.my_first_game" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="my_first_game.output.dir" value="${module.my_first_game.basedir}/out/production/my_first_game"/>
+  <property name="my_first_game.testoutput.dir" value="${module.my_first_game.basedir}/out/test/my_first_game"/>
+  
+  <path id="my_first_game.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="my_first_game.module.production.classpath">
+    <path refid="${module.jdk.classpath.my_first_game}"/>
+  </path>
+  
+  <path id="my_first_game.runtime.production.module.classpath">
+    <pathelement location="${my_first_game.output.dir}"/>
+  </path>
+  
+  <path id="my_first_game.module.classpath">
+    <path refid="${module.jdk.classpath.my_first_game}"/>
+    <pathelement location="${my_first_game.output.dir}"/>
+  </path>
+  
+  <path id="my_first_game.runtime.module.classpath">
+    <pathelement location="${my_first_game.testoutput.dir}"/>
+    <pathelement location="${my_first_game.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.my_first_game">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.my_first_game">
+    <patternset refid="excluded.from.module.my_first_game"/>
+  </patternset>
+  
+  <path id="my_first_game.module.sourcepath">
+    <dirset dir="${module.my_first_game.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.my_first_game" depends="compile.module.my_first_game.production,compile.module.my_first_game.tests" description="Compile module my_first_game"/>
+  
+  <target name="compile.module.my_first_game.production" depends="register.custom.compilers" description="Compile module my_first_game; production classes">
+    <mkdir dir="${my_first_game.output.dir}"/>
+    <javac2 destdir="${my_first_game.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.my_first_game}/javac">
+      <compilerarg line="${compiler.args.my_first_game}"/>
+      <bootclasspath refid="my_first_game.module.bootclasspath"/>
+      <classpath refid="my_first_game.module.production.classpath"/>
+      <src refid="my_first_game.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.my_first_game"/>
+    </javac2>
+    
+    <copy todir="${my_first_game.output.dir}">
+      <fileset dir="${module.my_first_game.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.my_first_game.tests" depends="register.custom.compilers,compile.module.my_first_game.production" description="compile module my_first_game; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.my_first_game" description="cleanup module">
+    <delete dir="${my_first_game.output.dir}"/>
+    <delete dir="${my_first_game.testoutput.dir}"/>
+  </target>
+</project>
