@@ -28,6 +28,8 @@ public class InputManagerTest extends GameCore {
         super.init();
         Window window = screen.getFullScreenWindow();
         inputManager = new InputManager(window);
+        System.out.println(screen.getCurrentDisplayMode().toString());
+
 
         createGameActions();
         createSprite();
@@ -46,6 +48,8 @@ public class InputManagerTest extends GameCore {
     }
 
     public void update(long elapsedTime) {
+        System.out.println(player.getY()+"YYYY");
+        System.out.println(player.getX()+"XXXXXXXXXXXXXXXXX");
         checkSystemInput();
         if (!isPaused()) {
             checkGameInput();
@@ -122,6 +126,7 @@ public class InputManagerTest extends GameCore {
 
         player = new Player(animation);
         player.setFloorY(screen.getHeight()-player.getHeight());
+
     }
 
 }
