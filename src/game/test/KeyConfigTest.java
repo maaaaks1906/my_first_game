@@ -50,7 +50,7 @@ public class KeyConfigTest extends MenuTest {
         Border border = BorderFactory.createLineBorder(Color.BLACK);
         dialog = new JPanel(new BorderLayout());
         dialog.add(topPanel, BorderLayout.NORTH);
-        dialog.add(configPanel, BorderLayout.CENTER);
+        dialog.add(configPanel, BorderLayout.WEST);
         dialog.add(bottomPanel, BorderLayout.SOUTH);
         dialog.setBorder(border);
         dialog.setVisible(false);
@@ -65,7 +65,7 @@ public class KeyConfigTest extends MenuTest {
     }
 
     private void addActionConfig(JPanel configPanel, GameAction action) {
-        JLabel label = new JLabel(action.getName(), JLabel.RIGHT);
+        JLabel label = new JLabel(action.getName(),SwingConstants.CENTER);
         InputComponent input = new InputComponent(action);
         configPanel.add(label);
         configPanel.add(input);
