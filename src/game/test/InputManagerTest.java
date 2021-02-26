@@ -89,7 +89,7 @@ public class InputManagerTest extends GameCore {
     public void createGameActions() {
         jump = new GameAction("jump", GameAction.DETECT_INITIAL_PRESS_ONLY);
         exit = new GameAction("exit", GameAction.DETECT_INITIAL_PRESS_ONLY);
-        moveLeft = new GameAction("move left");
+        moveLeft = new GameAction("move leFt");
         moveRight = new GameAction("move right");
         pause = new GameAction("pause", GameAction.DETECT_INITIAL_PRESS_ONLY);
 
@@ -122,6 +122,7 @@ public class InputManagerTest extends GameCore {
 
         player = new Player(animation);
         player.setFloorY(screen.getHeight()-player.getHeight());
+
     }
 
 }

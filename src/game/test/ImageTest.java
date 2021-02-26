@@ -10,7 +10,6 @@ public class ImageTest extends JFrame {
         DisplayMode displayMode;
 
         displayMode = new DisplayMode(1920, 1080, 32, DisplayMode.REFRESH_RATE_UNKNOWN);
-
         ImageTest test = new ImageTest();
         test.run(displayMode);
     }

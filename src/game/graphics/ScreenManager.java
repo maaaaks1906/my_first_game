@@ -6,6 +6,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.InvocationTargetException;
 
+
 public class ScreenManager {
     private GraphicsDevice device;
 
@@ -18,12 +19,12 @@ public class ScreenManager {
         return device.getDisplayModes();
     }
 
-    public DisplayMode findFirstCompatibleMode(DisplayMode modes[]) {
-        DisplayMode goodMode[] = device.getDisplayModes();
-        for (int i = 0; i < goodMode.length; i++) {
-            for (int j = 0; j < goodMode.length ; j++) {
-                if (displayModeMatch(modes[i], goodMode[j])) {
-                    return modes[i];
+    public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) {
+        DisplayMode[] goodMode = device.getDisplayModes();
+        for (DisplayMode mode : modes) {
+            for (DisplayMode displayMode : goodMode) {
+                if (displayModeMatch(mode, displayMode)) {
+                    return mode;
                 }
             }
 
@@ -49,12 +50,7 @@ public class ScreenManager {
         }
 
         try {
-            EventQueue.invokeAndWait(new Runnable() {
-                @Override
-                public void run() {
-                    frame.createBufferStrategy(2);
-                }
-            });
+            EventQueue.invokeAndWait(() -> frame.createBufferStrategy(2));
         } catch (InterruptedException | InvocationTargetException e) {
             e.printStackTrace();
         }
