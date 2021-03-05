@@ -19,8 +19,8 @@ public class KeyConfigTest extends MenuTest {
 
     private static final String INSTRUCTIONS =
             "<html>Kliknij pole tekstowe akcji w celu zmiany przypisanych do niego klawiszy." +
-                    "<br>Z akcj� mog� by� skojarzone najwy�ej trzy klawisze." +
-                    "<br>Naci�nij Backspace, aby skasowa� klawisze akcji.";
+                    "<br>Z akcją mogą być skojarzone najwyżej trzy klawisze." +
+                    "<br>Naciśnij Backspace, aby skasować klawisze akcji.";
 
     private JPanel dialog;
     private JButton okButton;
@@ -30,32 +30,48 @@ public class KeyConfigTest extends MenuTest {
         super.init();
 
         inputs = new ArrayList<>();
+        Border border = BorderFactory.createLineBorder(Color.BLACK);
 
+
+        /*
+        Creates the layout with yellow borders to be added in the middle of the main layout
+         */
         JPanel configPanel = new JPanel(new GridLayout(5, 2, 2, 2));
+        configPanel.setBorder(border);
         addActionConfig(configPanel, moveLeft);
         addActionConfig(configPanel, moveRight);
         addActionConfig(configPanel, jump);
         addActionConfig(configPanel, pause);
         addActionConfig(configPanel, exit);
 
+        /*
+        Creates the button to be placed at the bottom of main layout
+         */
         JPanel bottomPanel = new JPanel(new FlowLayout());
+        bottomPanel.setBorder(border);
         okButton = new JButton("OK");
         okButton.setFocusable(false);
         okButton.addActionListener(this);
         bottomPanel.add(okButton);
 
+        /*
+        Layout with instructions printed at the top
+         */
         JPanel topPanel = new JPanel(new FlowLayout());
+        topPanel.setBorder(border);
         topPanel.add(new JLabel(INSTRUCTIONS));
 
-        Border border = BorderFactory.createLineBorder(Color.BLACK);
         dialog = new JPanel(new BorderLayout());
         dialog.add(topPanel, BorderLayout.NORTH);
         dialog.add(configPanel, BorderLayout.WEST);
         dialog.add(bottomPanel, BorderLayout.SOUTH);
         dialog.setBorder(border);
-        dialog.setVisible(false);
+        dialog.setVisible(false); // <- Makes the config layout invisible when app is launched at first
         dialog.setSize(dialog.getPreferredSize());
 
+        /*
+        Sets the position at the screen
+         */
         dialog.setLocation(
                 (screen.getWidth() - dialog.getWidth()) / 2,
                 (screen.getHeight() - dialog.getHeight()) / 2
