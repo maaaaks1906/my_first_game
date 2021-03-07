@@ -1,7 +1,5 @@
 package game.sound;
 
-import sun.jvm.hotspot.debugger.win32.coff.SectionHeader;
-
 public class EchoFilter extends SoundFilter {
 
     private short[] delayBuffer;

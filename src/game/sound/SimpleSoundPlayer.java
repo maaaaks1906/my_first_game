@@ -3,10 +3,10 @@ package game.sound;
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class SimpleSoundPLayer {
+public class SimpleSoundPlayer {
     public static void main(String[] args) {
         //Loading sound
-        SimpleSoundPLayer sound = new SimpleSoundPLayer("/Users/maks/IdeaProjects/my_first_game/sounds/voice.wav");
+        SimpleSoundPlayer sound = new SimpleSoundPlayer("/Users/maks/IdeaProjects/my_first_game/sounds/voice.wav");
 
         //Creating a sound stream
         InputStream stream = new ByteArrayInputStream(sound.getSamples());
@@ -20,7 +20,7 @@ public class SimpleSoundPLayer {
     private AudioFormat format;
     private byte[] samples;
 
-    public SimpleSoundPLayer(String fileName) {
+    public SimpleSoundPlayer(String fileName) {
         try {
             AudioInputStream stream = AudioSystem.getAudioInputStream(new File(fileName));
 

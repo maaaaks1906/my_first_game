@@ -11,7 +11,7 @@ public class FilteredSoundStream extends FilterInputStream {
     private SoundFilter soundFilter;
     private int remainingSize;
 
-    protected FilteredSoundStream(InputStream in, SoundFilter soundFilter) {
+    public FilteredSoundStream(InputStream in, SoundFilter soundFilter) {
         super(in);
         this.soundFilter = soundFilter;
         remainingSize = REMAINING_SIZE_UNKNOWN;
