@@ -1,6 +1,12 @@
 package game.sound;
 
-public class SoundFilter {
+/*
+Abstract class made to filter sounds.
+Because all objects from this class can use internal sample buffer,
+for each sound played must be created a new object of SoundFilter.
+Each sound can be re-used after using reset().
+ */
+public abstract class SoundFilter {
 
     public void reset() {
     }
@@ -13,8 +19,7 @@ public class SoundFilter {
         filter(samples, 0, samples.length);
     }
 
-    private void filter(byte[] samples, int offset, int length) {
-    }
+    public abstract void filter(byte[] samples, int offset, int length);
 
     public static short getSample(byte[] buffer, int position) {
         return (short) (((buffer[position + 1] & 0xff) << 8) | (buffer[position] & 0xff));
