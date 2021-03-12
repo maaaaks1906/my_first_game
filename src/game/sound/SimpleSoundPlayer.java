@@ -1,5 +1,7 @@
 package game.sound;
 
+import game.util.LoopingByteInputStream;
+
 import javax.sound.sampled.*;
 import java.io.*;
 
@@ -8,6 +10,7 @@ public class SimpleSoundPlayer {
         //Loading sound
         SimpleSoundPlayer sound = new SimpleSoundPlayer("sounds/voice.wav");
         SimpleSoundPlayer sound3 = new SimpleSoundPlayer("sounds/wave.wav");
+
 
         //Creating a sound stream
         InputStream stream = new ByteArrayInputStream(sound.getSamples());

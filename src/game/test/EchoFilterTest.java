@@ -3,6 +3,7 @@ package game.test;
 import game.sound.EchoFilter;
 import game.sound.FilteredSoundStream;
 import game.sound.SimpleSoundPlayer;
+import game.util.LoopingByteInputStream;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
