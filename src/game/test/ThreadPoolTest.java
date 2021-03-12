@@ -1,22 +1,9 @@
-package game.thread_pool;
+package game.test;
 
-import game.thread_pool.ThreadPool;
+import game.util.ThreadPool;
 
 public class ThreadPoolTest {
     public static void main(String[] args) {
-//        if (args.length != 2) {
-//            System.out.println("Test zadan ThreadPool.");
-//            System.out.println(
-//                    "Uzycie: java ThreadPoolTest liczbaZada� liczbaWatk�w");
-//            System.out.println(
-//                    "  ilo��Zada� - liczba: liczba zada� do wykonania.");
-//            System.out.println(
-//                    "  ilo��W�tk�w - liczba: liczba w�tk�w " +
-//                            "w puli.");
-//            return;
-////        }
-//        int numTasks = Integer.parseInt(args[0]);
-//        int numThreads = Integer.parseInt(args[1]);
 
         // Utworzenie puli w�tk�w:
         ThreadPool threadPool = new ThreadPool(4);
