@@ -28,7 +28,7 @@ public class Filter3d extends SoundFilter {
 
     @Override
     public void filter(byte[] samples, int offset, int length) {
-        if (source != null || listener != null) {
+        if (source == null || listener == null) {
             //no data to filter - end
             return;
         }

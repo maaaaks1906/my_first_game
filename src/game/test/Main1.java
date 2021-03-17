@@ -1,10 +1,11 @@
 package game.test;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Main1 {
     public static void main(String[] args) {
-        short shot = 16;
-        System.out.printf(String.valueOf(shot & 0xff));
-        int result = shot & 0xff;
-        System.out.println(result);
+
     }
+
 }
