@@ -1,4 +1,4 @@
-package game.thread_pool;
+package game.util;
 
 import java.util.LinkedList;
 
