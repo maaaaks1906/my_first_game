@@ -18,7 +18,7 @@ public class SimpleSoundPlayer {
         //Method used to play sound
         sound.play(stream);
 
-        //To play another sound new stream is needed to open
+        //To play another sound new stream is required
         stream = new ByteArrayInputStream(sound3.getSamples());
 
         //new sound is played using same stream object
@@ -58,7 +58,7 @@ public class SimpleSoundPlayer {
 
         //then loads it in to a new list
         //then it opens a stream and takes audioStream as parameter
-        //next it tries to read samples if impossible to read throws exception
+        //next it tries to read samples, if impossible to read - throws exception
         byte[] samples = new byte[length];
         DataInputStream is = new DataInputStream(audioStream);
         try {

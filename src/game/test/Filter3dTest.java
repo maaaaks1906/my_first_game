@@ -37,7 +37,7 @@ public class Filter3dTest extends GameCore {
 
         createSprites();
 
-        bzzSound = new SimpleSoundPlayer("sounds/noww.wav");
+        bzzSound = new SimpleSoundPlayer("sounds/fly-bzz.wav");
 
         Filter3d filter = new Filter3d(fly, listener, screen.getHeight());
 

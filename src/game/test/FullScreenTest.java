@@ -9,22 +9,8 @@ public class FullScreenTest extends JFrame {
     public static void main(String[] args) {
         DisplayMode displayMode;
 
+        displayMode = new DisplayMode(1920, 1080, 32, DisplayMode.REFRESH_RATE_UNKNOWN);
 
-        if (args.length == 3) {
-
-            displayMode = new DisplayMode(
-                    Integer.parseInt(args[0]),
-                    Integer.parseInt(args[1]),
-                    Integer.parseInt(args[2]),
-                    DisplayMode.REFRESH_RATE_UNKNOWN
-            );
-
-            for (int i = 0; i < args.length; i++) {
-                System.out.println(args[i]);
-            }
-        } else {
-            displayMode = new DisplayMode(1920, 1080, 32, DisplayMode.REFRESH_RATE_UNKNOWN);
-        }
 
         FullScreenTest test = new FullScreenTest();
         test.run(displayMode);
